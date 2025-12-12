@@ -43,7 +43,7 @@ func (p *MeterDataParser) ObtainValue() (float64, error) {
 	if p.data == nil || len(p.data) == 0 {
 		return 0, errors.New("no data")
 	}
-	return p.data[0]
+	return p.data[0],nil
 }
 
 // ObtainValues 获取解析结果
