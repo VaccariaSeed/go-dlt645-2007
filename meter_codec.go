@@ -78,6 +78,7 @@ func (m *MeterDataCodec) parseRespondingNormally(funcCode byte, data []byte) {
 	ident := data[:4]
 	//判断是否存在数据解析器
 	if parser, ok := m.parsers[hex.EncodeToString(ident)]; ok {
+		parser.flush()
 		if len(data) == 4 {
 			m.receiver.MeterReadResponse(reverseBytes(ident), nil, hasNext, 0)
 			return
