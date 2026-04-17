@@ -67,6 +67,13 @@ func (p *MeterDataParser) decode(data []byte) error {
 	return nil
 }
 
+func (p *MeterDataParser) Decode(data []byte) (any, error) {
+	if err := p.decode(data); err != nil {
+		return nil, err
+	}
+	return p.ObtainValues(), nil
+}
+
 func (p *MeterDataParser) parser(data []byte) (float64, error) {
 	if len(data) != p.size {
 		return 0, LengthMismatchError
