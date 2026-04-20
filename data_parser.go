@@ -68,6 +68,7 @@ func (p *MeterDataParser) decode(data []byte) error {
 }
 
 func (p *MeterDataParser) Decode(data []byte) (any, error) {
+	p.data = nil
 	if err := p.decode(data); err != nil {
 		return nil, err
 	}
