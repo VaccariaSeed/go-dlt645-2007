@@ -71,7 +71,7 @@ func (p *MeterDataParser) Decode(data []byte) (any, error) {
 	if err := p.decode(data); err != nil {
 		return nil, err
 	}
-	return p.ObtainValues(), nil
+	return p.ObtainValue(), nil
 }
 
 func (p *MeterDataParser) parser(data []byte) (float64, error) {
