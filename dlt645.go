@@ -117,6 +117,13 @@ func (m *MeterDlt645Protocol) DecodeByBuf(buf *bufio.Reader) error {
 	return nil
 }
 
+
+// Frame 获取报文
+func (m *MeterDlt645Protocol) Frame() []byte {
+	return m.original
+}
+
+
 func (m *MeterDlt645Protocol) cs(frame []byte) byte {
 	var sum uint8
 	for _, b := range frame {
